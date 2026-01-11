@@ -1,10 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import request from 'supertest';
-import express from 'express';
-import cors from 'cors';
 import Anthropic from '@anthropic-ai/sdk';
 import { createApp } from '../server';
-import { create } from 'node:domain';
 
 // Mock Anthropic SDK
 vi.mock('@anthropic-ai/sdk');
