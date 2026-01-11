@@ -1,7 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { vi } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 import App from './App';
 
@@ -87,7 +86,7 @@ describe('App', () => {
     await new Promise(resolve => setTimeout(resolve, 0));
 
     // Should show alert
-    expect(alertMock).toHaveBeenCalledWith('Please select a valid PDF file.');
+    expect(alertMock).toHaveBeenCalledWith('Please select a PDF file');
 
     // Chat interface should not appear
     expect(screen.queryByText(/Chat about:/)).not.toBeInTheDocument();
