@@ -1,0 +1,28 @@
+.message {
+  display: flex;
+  max-width: 80%;
+}
+
+.message.user {
+  align-self: flex-end;
+}
+
+.message.assistant {
+  align-self: flex-start;
+}
+
+.message-content {
+  padding: 12px 16px;
+  border-radius: 12px;
+  word-wrap: break-word;
+}
+
+.message.user .message-content {
+  background-color: #61dafb;
+  color: #1e1e1e;
+}
+
+.message.assistant .message-content {
+  background-color: #333;
+  color: #fff;
+}
