@@ -92,9 +92,26 @@ yarn test
 querydoc-monorepo/
 ├── frontend/          # React frontend application
 │   ├── src/
+│   │   ├── components/
+│   │   │   ├── ChatInput.css
+│   │   │   ├── ChatInput.tsx
+│   │   │   ├── ChatInterface.css
+│   │   │   ├── ChatInterface.tsx
+│   │   │   ├── ChatMessage.css
+│   │   │   ├── ChatMessage.tsx
+│   │   │   ├── EmptyState.css
+│   │   │   ├── EmptyState.tsx
+│   │   │   ├── FileUpload.css
+│   │   │   └── FileUpload.tsx
+│   │   ├── hooks/
+│   │   │   ├── useChat.ts
+│   │   │   └── useFileBase64.ts
+│   │   ├── services/
+│   │   │   └── api.ts
+│   │   ├── test/
+│   │   │   └── setup.ts
 │   │   ├── App.tsx
-│   │   ├── ChatInterface.tsx
-│   │   └── test/
+│   │   └── ChatInterface.tsx
 │   └── package.json
 ├── backend/           # Express backend API
 │   ├── src/
