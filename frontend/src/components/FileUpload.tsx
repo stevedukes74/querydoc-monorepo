@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react';
-import { FileUploadProps } from '../services/types';
+import { FileUploadProps } from '../types';
 import './FileUpload.css';
 
 export const FileUpload = ({ onFileSelect, selectedFile }: FileUploadProps) => {

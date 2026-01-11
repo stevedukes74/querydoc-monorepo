@@ -1,4 +1,4 @@
-import { ChatMessageProps } from "../services/types";
+import { ChatMessageProps } from "../types";
 import './ChatMessage.css';
 
 export const ChatMessage = ({ message }: ChatMessageProps) => {

@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { ChatInterfaceProps } from '../services/types';
+import { ChatInterfaceProps } from '../types';
 import { ChatMessage } from './ChatMessage';
 import { ChatInput } from './ChatInput';
 import { EmptyState } from './EmptyState';

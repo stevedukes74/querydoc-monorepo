@@ -1,5 +1,5 @@
 import { useState, FormEvent, ChangeEvent } from 'react';
-import { ChatInputProps } from '../services/types';
+import { ChatInputProps } from '../types';
 import './ChatInput.css';
 
 export const ChatInput = ({

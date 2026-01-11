@@ -1,4 +1,4 @@
-import { Message } from './types';
+import { Message } from '../types';
 
 // Abstract interface - makes it easy to swap implementations
 export interface ChatApiClient {

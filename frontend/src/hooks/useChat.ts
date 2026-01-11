@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Message, UseChatReturn } from '../services/types';
+import { Message, UseChatReturn } from '../types';
 import { ChatApiClient } from '../services/api';
 
 export const useChat = (
