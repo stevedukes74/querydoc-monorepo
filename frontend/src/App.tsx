@@ -1,20 +1,18 @@
-import { useState, ChangeEvent } from 'react';
+import { useState } from 'react';
+import { FileUpload } from './components/FileUpload';
+import { ChatInterface } from './components/ChatInterface';
+import { useFileToBase64 } from './hooks/useFileBase64';
+import { useChat } from './hooks/useChat';
+import { createChatApi } from './services/api';
 import './App.css';
-import ChatInterface from './ChatInterface';
 
+// Create API client once
+const apiClient = createChatApi();
 
 function App() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target?.files?.[0] || null;
-    if (file?.type === 'application/pdf') {
-      setSelectedFile(file);
-      console.log('Selected file:', file.name);
-    } else {
-      alert('Please select a valid PDF file.');
-    }
-  };
+  const pdfBase64 = useFileToBase64(selectedFile);
+  const { messages, isLoading, sendMessage } = useChat(pdfBase64, apiClient);
 
   return (
     <div className="App">
@@ -22,24 +20,19 @@ function App() {
         <h1>QueryDoc</h1>
         <p>Ask questions about your documents</p>
 
-        <div className="upload-section">
-          <input
-            type="file"
-            accept=".pdf"
-            onChange={handleFileChange}
-            style={{ display: 'none' }}
-            id="file-upload"
+        <FileUpload
+          onFileSelect={setSelectedFile}
+          selectedFile={selectedFile}
+        />
+
+        {selectedFile && (
+          <ChatInterface
+            messages={messages}
+            isLoading={isLoading}
+            onSendMessage={sendMessage}
+            fileName={selectedFile.name}
           />
-          <label htmlFor="file-upload" className="upload-button">
-            {selectedFile ? 'Change Document' : 'Choose PDF Document'}
-          </label>
-
-          {selectedFile && (
-            <p className="file-name">Selected: {selectedFile.name}</p>
-          )}
-        </div>
-
-        {selectedFile && <ChatInterface fileName={selectedFile.name} file={selectedFile} />}
+        )}
       </header>
     </div>
   );

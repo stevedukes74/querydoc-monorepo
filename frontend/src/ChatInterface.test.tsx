@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import '@testing-library/jest-dom/vitest';
-import ChatInterface from "./ChatInterface";
+import { ChatInterface } from "./components/ChatInterface";
 
 // Mock fetch globally
 globalThis.fetch = vi.fn();
