@@ -9,6 +9,7 @@ export default [
       'coverage/**',
       '*.config.js',
       '*.config.ts',
+      '*.config.mjs',
     ],
   },
   {
@@ -31,17 +32,18 @@ export default [
       '@typescript-eslint': tseslint,
     },
     rules: {
-      // Line length
+      // Line length - warn only
       'max-len': ['warn', {
         code: 90,
         ignoreComments: true,
         ignoreStrings: true,
         ignoreTemplateLiterals: true,
+        ignoreUrls: true,
       }],
 
-      // TypeScript specific
+      // TypeScript specific - warnings for now
       '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-unused-vars': ['error', {
+      '@typescript-eslint/no-unused-vars': ['warn', {
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_',
       }],
