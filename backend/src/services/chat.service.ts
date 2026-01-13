@@ -2,12 +2,23 @@ import Anthropic from "@anthropic-ai/sdk";
 import { ChatMessage, IChatService, IAnthropicService, ChatStreamEvent } from "../types";
 
 export class ChatService implements IChatService {
-  constructor(private anthropicService: IAnthropicService) {}
+  constructor(
+    private anthropicService: IAnthropicService,
+    private model: string = "claude-sonnet-4-20250514",
+    private maxTokens: number = 2048
+  ) {}
 
-  async *streamChatResponse(messages: ChatMessage[], pdfData?: string): AsyncIterableIterator<ChatStreamEvent> {
+  async *streamChatResponse(
+    messages: ChatMessage[],
+    pdfData?: string
+  ): AsyncIterableIterator<ChatStreamEvent> {
     try {
       const claudeMessages = this.formatMessagesForClaude(messages, pdfData);
-      const stream = await this.anthropicService.createStreamingMessage(claudeMessages);
+      const stream = await this.anthropicService.createStreamingMessage(
+        claudeMessages,
+        this.model,
+        this.maxTokens
+      );
 
       for await (const event of stream) {
         if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
@@ -24,7 +35,10 @@ export class ChatService implements IChatService {
     }
   }
 
-  private formatMessagesForClaude(messages: ChatMessage[], pdfData?: string): Anthropic.MessageParam[] {
+  private formatMessagesForClaude(
+    messages: ChatMessage[],
+    pdfData?: string
+  ): Anthropic.MessageParam[] {
     const claudeMessages: Anthropic.MessageParam[] = [];
 
     if (pdfData && messages.length > 0) {
