@@ -22,14 +22,14 @@ export const FileUpload = ({ onFileSelect, selectedFile }: FileUploadProps) => {
       />
       <label
         htmlFor="file-upload"
-        className="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl cursor-pointer transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+        className="px-8 py-4 bg-indigo-700 hover:bg-indigo-800 text-white font-semibold rounded-xl cursor-pointer transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
       >
         {selectedFile ? 'Change Document' : 'Choose PDF Document'}
       </label>
 
       {selectedFile && (
-        <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 backdrop-blur rounded-lg border border-slate-700">
-          <span className="text-cyan-400 text-sm font-medium">Selected: {selectedFile.name}</span>
+        <div className="flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur rounded-lg border border-slate-300 shadow-sm">
+          <span className="text-slate-700 text-sm font-medium">Selected: {selectedFile.name}</span>
         </div>
       )}
     </div>

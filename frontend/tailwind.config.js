@@ -6,6 +6,13 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-1': 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+        'gradient-1-inverse': 'linear-gradient(135deg, #c3cfe2 0%, #f5f7fa 100%)',
+        'gradient-2': 'linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%)',
+        'gradient-2-inverse': 'linear-gradient(to bottom, #e3eeff 0%, #f3e7e9 99%, #f3e7e9 100%)',
+        'gradient-3': 'radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%)',
+      },
       colors: {
         primary: {
           50: '#f0f9ff',

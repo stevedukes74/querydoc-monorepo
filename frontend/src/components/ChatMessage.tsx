@@ -8,8 +8,8 @@ export const ChatMessage = ({ message }: ChatMessageProps) => {
       <div className={`
         max-w-[80%] px-4 py-3 rounded-2xl
         ${isUser
-          ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-tr-sm'
-          : 'bg-slate-700 text-slate-100 rounded-tl-sm'
+          ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-tr-sm shadow-md'
+          : 'bg-slate-100 text-slate-800 rounded-tl-sm shadow-sm border border-slate-200'
         }
         shadow-lg
         `}
