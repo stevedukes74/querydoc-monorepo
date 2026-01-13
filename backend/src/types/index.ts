@@ -32,7 +32,7 @@ export interface IChatService {
 
 export interface IAnthropicService {
   createStreamingMessage(
-    message: any[],
+    messages: any[],
     model: string,
     maxTokes: number
   ): Promise<AsyncIterable<any>>;
