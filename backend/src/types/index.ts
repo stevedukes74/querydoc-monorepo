@@ -2,7 +2,7 @@ import { Request } from "express";
 
 // Domain types
 export interface ChatMessage {
-  role: 'user' | 'assistant';
+  role: "user" | "assistant";
   content: string;
 }
 
@@ -17,23 +17,13 @@ export interface TypedRequest<T> extends Request {
 }
 
 // Stream events
-export type ChatStreamEvent =
-  | { type: 'text'; data: string }
-  | { type: 'done' }
-  | { type: 'error'; message: string };
+export type ChatStreamEvent = { type: "text"; data: string } | { type: "done" } | { type: "error"; message: string };
 
 // Service interfaces (DIP abstractions)
 export interface IChatService {
-  streamChatResponse(
-    messages: ChatMessage[],
-    pdfData?: string
-  ): AsyncIterableIterator<ChatStreamEvent>;
+  streamChatResponse(messages: ChatMessage[], pdfData?: string): AsyncIterableIterator<ChatStreamEvent>;
 }
 
 export interface IAnthropicService {
-  createStreamingMessage(
-    messages: any[],
-    model: string,
-    maxTokes: number
-  ): Promise<AsyncIterable<any>>;
+  createStreamingMessage(messages: any[], model?: string, maxTokes?: number): Promise<AsyncIterable<any>>;
 }
