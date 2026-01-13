@@ -90,34 +90,58 @@ yarn test
 ## Project Structure
 ```
 querydoc-monorepo/
-├── frontend/          # React frontend application
+├── frontend/                    # React frontend application
 │   ├── src/
-│   │   ├── components/
-│   │   │   ├── ChatInput.css
+│   │   ├── components/          # UI Components (Single Responsibility)
 │   │   │   ├── ChatInput.tsx
-│   │   │   ├── ChatInterface.css
 │   │   │   ├── ChatInterface.tsx
-│   │   │   ├── ChatMessage.css
 │   │   │   ├── ChatMessage.tsx
-│   │   │   ├── EmptyState.css
 │   │   │   ├── EmptyState.tsx
-│   │   │   ├── FileUpload.css
 │   │   │   └── FileUpload.tsx
-│   │   ├── hooks/
+│   │   ├── hooks/               # Custom React hooks
 │   │   │   ├── useChat.ts
-│   │   │   └── useFileBase64.ts
-│   │   ├── services/
+│   │   │   └── useFileToBase64.ts
+│   │   ├── services/            # API communication layer
 │   │   │   └── api.ts
-│   │   ├── test/
+│   │   ├── test/                # Test configuration
 │   │   │   └── setup.ts
-│   │   ├── App.tsx
-│   │   └── ChatInterface.tsx
-│   └── package.json
-├── backend/           # Express backend API
+│   │   ├── types.ts             # TypeScript type definitions
+│   │   ├── App.tsx              # Root component
+│   │   ├── main.tsx             # Application entry point
+│   │   └── index.css            # Global styles (Tailwind)
+│   ├── public/
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.ts
+│   ├── vitest.config.ts
+│   └── tailwind.config.js
+│
+├── backend/                     # Express backend API
 │   ├── src/
-│   │   ├── server.ts
-│   │   └── test/
-│   └── package.json
+│   │   ├── routes/              # Route definitions (thin layer)
+│   │   │   ├── health.routes.ts
+│   │   │   └── chat.routes.ts
+│   │   ├── controllers/         # Request/response handling
+│   │   │   ├── health.controller.ts
+│   │   │   └── chat.controller.ts
+│   │   ├── services/            # Business logic
+│   │   │   ├── chat.service.ts
+│   │   │   └── anthropic.service.ts
+│   │   ├── middleware/          # Validation, error handling
+│   │   │   ├── validation.middleware.ts
+│   │   │   └── error.middleware.ts
+│   │   ├── config/              # Configuration
+│   │   │   └── env.ts
+│   │   ├── types/               # TypeScript interfaces
+│   │   │   └── index.ts
+│   │   ├── test/                # Test configuration
+│   │   │   └── setup.ts
+│   │   ├── app.ts               # Express app setup
+│   │   └── server.ts            # Entry point (starts server)
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── vitest.config.ts
+│
 └── README.md
 ```
 
