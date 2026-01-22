@@ -21,14 +21,3 @@ EXPOSE 8080
 
 # Start server
 CMD ["node", "dist/server.js"]
-```
-
-**Create `.dockerignore` in `querydoc-backend/`:**
-```
-node_modules
-dist
-.env
-.git
-*.log
-coverage
-.vscode
