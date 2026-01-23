@@ -12,3 +12,5 @@ run:
   env:
     - name: NODE_ENV
       value: production
+    - name: CORS_ORIGIN
+      value: https://querydoc.stevetheguru.com
