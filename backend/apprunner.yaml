@@ -15,4 +15,4 @@ run:
     - name: ANTHROPIC_API_KEY
       value: "{{resolve:secretsmanager:querydoc/anthropic-api-key}}"
     - name: CORS_ORIGIN
-      value: https://querydoc.stevetheguru.com
+      value: https://main.d3tf720e1i1un.amplifyapp.com/
