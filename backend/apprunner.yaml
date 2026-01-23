@@ -12,5 +12,7 @@ run:
   env:
     - name: NODE_ENV
       value: production
+    - name: ANTHROPIC_API_KEY
+      value: "{{resolve:secretsmanager:querydoc/anthropic-api-key}}"
     - name: CORS_ORIGIN
       value: https://querydoc.stevetheguru.com
