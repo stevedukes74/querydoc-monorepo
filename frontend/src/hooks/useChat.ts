@@ -41,6 +41,7 @@ export const useChat = (pdfBase64: string, apiClient: ChatApiClient): UseChatRet
         }
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : "An error occurred";
+        console.error("Error Message:", errorMessage);
         setError(errorMessage);
         setMessages((prev) => [
           ...prev,
