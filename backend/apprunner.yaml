@@ -13,6 +13,6 @@ run:
     - name: NODE_ENV
       value: production
     - name: ANTHROPIC_API_KEY
-      value: "{{resolve:ssm:/querydoc/anthropic-api-key}}"
+      value: "resolve:ssm:/querydoc/anthropic-api-key"
     - name: CORS_ORIGIN
       value: https://main.d3tf720e1i1un.amplifyapp.com/
